@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import ITEMSCard from "./ITEMScard"
-
 import SearchBar from "./SearchBar"
+
 
 // import RestroList from "../utils/restrolist"
 import Filter_btn from "./Filter_btn"
@@ -27,18 +27,21 @@ import Shimmer from "./Shimmer";
 
 const Page1 = () => {
 
-    console.log("page1rendered");
+    // console.log("page1rendered");
     let [listOfItems, setListOfItems] = useState([]);
     let [originalList, setOriginalList] = useState([]);
    
     
-console.log(listOfItems);
+        //   console.log(listOfItems);
 
-    //for Loader
+    //for Shimmer Effect
+
     let [loading,setloading]= useState(true)
 
+
+    // fetching data from API
     useEffect(() => {
-        fetchData()
+        fetchData();
     }, [])
 
     
@@ -48,7 +51,7 @@ console.log(listOfItems);
         setloading(true)
         const respo = await fetch("https://dummyjson.com/products")
         const data = await respo.json()
-        console.log(data);
+        // console.log(data);
         setListOfItems(data?.products);
         setOriginalList(data?.products);
         setloading(false)
@@ -63,36 +66,33 @@ console.log(listOfItems);
              setAllItems={setListOfItems}
              originalList={originalList}
              setOriginalList={setOriginalList}
-            
-             
              />
 
-                <Filter_btn listOfItems={listOfItems} setListOfItems={setListOfItems} />
-
-            <div className="page1">
+            <Filter_btn listOfItems={listOfItems} setListOfItems={setListOfItems} />
 
             
+            
+            <div className="page1">
 
+           
+                {loading?(<Shimmer/>):
+                    
+                    <div className="ITEMS-container">
 
-               
-            {loading?(<Shimmer/>):
-                       <div className="ITEMS-container">
-
-                        {    listOfItems.map((ITEMS) => {
-
-                            
+                        {    listOfItems.map((ITEMS) => {     
                             return (
                                 <ITEMSCard
                                     key={ITEMS.id}
                                     ResData={ITEMS} />
-                            )
-                        })
-                       }
+                                    )
+
+                                })
+                        }
 
 
                     </div>
 
-            }
+                }
                
 
               

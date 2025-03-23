@@ -3,10 +3,13 @@ import React, { useEffect, useState } from "react";
 import { searchFnc } from "../utils/searchFnc";
 
 const SearchBar = ({ allItems, setAllItems, originalList }) => {
-
-    console.log("searchRendered");
     
     const [searchValue, setSearchValue] = useState("");
+    
+        useEffect(()=>{
+            console.log("search renderedddddd");
+            
+        },[searchValue])
 
     
     useEffect(() => {
