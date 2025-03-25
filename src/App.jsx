@@ -6,27 +6,7 @@ import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-
-
-// this is header compoent , having logo and nav items
-
-
-
-
-
-//All Restro Dataa
-
-
-
-
-// restaurant-card
-
-
-
-
-// page-1 component, having all the details
-
-
+import ItemsPage from "./components/ItemsPage";
 
 const AppLayout = () => {
     return (
@@ -62,6 +42,10 @@ const Approuter= createBrowserRouter(
           {
             path:"/contact",
             element:<Contact/>
+          },
+          {
+            path:"/item/:itemID",
+            element:<ItemsPage/>
           },
         ],
 

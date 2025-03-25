@@ -6,12 +6,8 @@ const SearchBar = ({ allItems, setAllItems, originalList }) => {
     
     const [searchValue, setSearchValue] = useState("");
     
-        useEffect(()=>{
-            console.log("search renderedddddd");
-            
-        },[searchValue])
-
-    
+   
+ 
     useEffect(() => {
         if (searchValue.trim() === "") {
 
