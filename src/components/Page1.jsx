@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import Filter_btn from "./Filter_btn";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
+import { useOutletContext } from "react-router-dom";
 
 
 // import Loader from "./Loader";
@@ -16,6 +17,7 @@ const Page1 = () => {
   let [listOfItems, setListOfItems] = useState([]);
   let [originalList, setOriginalList] = useState([]);
 
+  const { cart, setCart } = useOutletContext()
   //   console.log(listOfItems);
 
   //for Shimmer Effect
@@ -39,6 +41,10 @@ const Page1 = () => {
     setloading(false);
   };
 
+
+  
+  
+
   //page1 JSX
   return (
     <>
@@ -49,16 +55,27 @@ const Page1 = () => {
         setOriginalList={setOriginalList}
       />
 
-      <Filter_btn listOfItems={listOfItems} setListOfItems={setListOfItems} />
+      {/* <Filter_btn listOfItems={listOfItems} setListOfItems={setListOfItems} /> */}
 
       <div className="page1">
         {loading ? (
           <Shimmer />
         ) : (
           <div className="ITEMS-container">
-            {listOfItems.map((ITEMS) => {
-              return <ITEMSCard key={ITEMS.id} ResData={ITEMS} />;
+
+            {listOfItems.map((ITEMS,index) => {
+              return (
+              <ITEMSCard 
+              key={ITEMS.id} 
+              ResData={ITEMS} 
+              index={index}
+              cart={cart}
+              setCart={setCart}
+              />
+              )
+
             })}
+            
           </div>
         )}
       </div>

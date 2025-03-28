@@ -7,6 +7,7 @@ export const searchFnc=({searchValue, setAllItems, originalList})=>{
       return(
         res.title.toLowerCase().trim().includes(searchValue.trim().toLowerCase())||
         res.category.toLowerCase().trim().includes(searchValue.trim().toLowerCase())
+        
       )
     }
 )

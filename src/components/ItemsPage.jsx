@@ -50,7 +50,7 @@ useEffect(() => {
   if (!selectedItem) return; 
 
   if (selectedItem.rating >= 4) {
-    setRatingColor("rgb(112, 209, 112)");
+    setRatingColor("#267E3E");
   } else if (selectedItem.rating < 4 && selectedItem.rating > 3.5) {
     setRatingColor("rgb(248, 208, 66)");
   } else if (selectedItem.rating < 3.5 && selectedItem.rating > 1) {

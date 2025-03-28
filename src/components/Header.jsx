@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Logo_url } from "../utils/content";
 import { Link } from "react-router-dom";
-
+import { FaShoppingCart } from "react-icons/fa";
 const Header = () => {
 
-    const[login,setLogin]=useState("LOGIN")
+    // const[login,setLogin]=useState("LOGIN")
 
-    useEffect(()=>{
-        let header= document.querySelector(".header")
-        if (login === "LOGOUT") {
-            header.style.backgroundColor = "orange";
-          } else {
-            header.style.backgroundColor = "red";
-          }
-    },[login])
+    // useEffect(()=>{
+    //     let header= document.querySelector(".header")
+    //     if (login === "LOGOUT") {
+    //         header.style.backgroundColor = "orange";
+    //       } else {
+    //         header.style.backgroundColor = "red";
+    //       }
+    // },[login])
 
     return (
         <>
@@ -31,15 +31,10 @@ const Header = () => {
                         <Link to="/"><li className="Home">Home</li></Link>
                         <Link to="/about"><li className="About">About Us</li></Link>
                         <Link to="/contact"><li className="Contact">Contact</li></Link>
-                    
-                       <button 
-                       className="loginBtn" 
-                       style={{fontSize:"16px"}} 
-                       onClick={()=>{
-                        setLogin(login==="LOGIN"?"LOGOUT":"LOGIN")
-                       }}
-                       >{login}
-                       </button>
+                        <Link to="/cart"> 
+                           <FaShoppingCart className="cartBtn"/> 
+                        </Link>
+                         
 
                         {/* <li className="signUp">SIGNUP</li> */}
                     </ul>

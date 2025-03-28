@@ -24,7 +24,7 @@ const SearchBar = ({ allItems, setAllItems, originalList }) => {
             <input
                 className="searchInput"
                 type="text"
-                placeholder="Groceries,Beauty,Furniture..."
+                placeholder="Groceries,Fragrances,Beauty,Furniture..."
                 value={searchValue} // Controlled input
                 onChange={(e) => setSearchValue(e.target.value)} 
             />
